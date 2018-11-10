@@ -12,17 +12,11 @@ public class Main
 	// nesuprantu, kodel gaunu stackOverflow
 	//6) Ar klases neatlieka per daug f-ju (pvz. MineField ?)
 	//7) gal galima lauka atspausdinti su spalvomis?
+    //8) zaidimas nesibaigia: 1) radus visas minas; 2) atidarius visus langus  
+    
 	public static void main(String[] args){		
 		UserInterface gameUi = new UserInterface();
-		//gameUi.startGame();   // <---- ar galima kitaip, kad is main metodo butu call i start, o ne atvirksciai
-	
-	//[h][w]
-	/*
-		MineField myMineField = new MineField(15, 15, 0.25);
-		System.out.println(myMineField);
-		System.out.println("Cells to open: " + myMineField.countCellsRemainingForOpening());
-		System.out.println("Cells with value: " + myMineField.countCellsByType(CellValue.ONE));
-		*/
 	}
+
 	
 }
