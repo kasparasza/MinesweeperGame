@@ -6,14 +6,11 @@ import userInterface.*;
 public class Main
 {
 	// TOLIAU:
-	//3) Pradek kurti UI logika
-	//4) Langeliu atvertimas: visos grupes -> tolesnes grupes, jei pries tai atversta tuscia lastele
-	// 4.1) sukuriaU ALTERNATYVIA KLASE adjacentCellsMap ir perdariau 2 metodus MineField
-	// nesuprantu, kodel gaunu stackOverflow
 	//6) Ar klases neatlieka per daug f-ju (pvz. MineField ?)
 	//7) gal galima lauka atspausdinti su spalvomis?
-    //8) zaidimas nesibaigia: 1) radus visas minas; 2) atidarius visus langus
-    //9) toliau..
+    // 8) grazesnis atspausdintas vaizdas: spacing, papildmomas tekstas (pvz prie koordinaciu)
+    // 10) kodel easy level kartais turi daug minu
+    //9) code formatting
     
 	public static void main(String[] args){		
 		UserInterface gameUi = new UserInterface();
