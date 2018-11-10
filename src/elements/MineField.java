@@ -95,7 +95,10 @@ public class MineField
 		return adjacentCells;
 	}
 	*/
-	private AdjacentCellsMap getAdjacentCells(int hCoordinate, int wCoordinate){
+        
+
+        private AdjacentCellsMap getAdjacentCells(int hCoordinate, int wCoordinate){
+            System.out.println("call to getAdjacentCells - values: h:" + hCoordinate + " y:" + wCoordinate); // ------- ????????
 		AdjacentCellsMap adjacentCells = new AdjacentCellsMap();
 		for(int h = hCoordinate - 1; h <= hCoordinate + 1; h++){
 			for(int w = wCoordinate - 1; w <= wCoordinate +1; w++){
@@ -103,14 +106,24 @@ public class MineField
 				if(w == wCoordinate & h == hCoordinate ||
 				   w == 0 || h == 0 ||
 				   w == this.width - 1 || h == this.height - 1){
+                                        System.out.println("skip - value: h:" + h + " y:" + w); // ------- ????????
 					continue;
 				}
-				adjacentCells.addCell(this.field[h][w], new int[]{hCoordinate, wCoordinate});
+                                
+                                // - BANDYMAS PATAISYTI ------------------------------------------------------- ???????????
+                                System.out.println("work with - value: h:" + h + " y:" + w); // ------- ????????
+                                if(!this.field[h][w].getIsOpen()){
+                                    //adjacentCells.addCell(this.field[h][w], new int[]{hCoordinate, wCoordinate});
+                                    adjacentCells.addCell(this.field[h][w], new int[]{h, w}); /// ---------- new line added ???????
+                                } else {
+                                System.out.println("skip - value: h:" + h + " y:" + w); // ------- ????????
+                                }
 			}
 		}
 		return adjacentCells;
 	}
-
+        
+        
 	/// KOPIJUOJAMAS IR PERDAROMAS
 	//!!!
 	// Variantai:
@@ -122,16 +135,30 @@ public class MineField
 			c.openCell();
 		}
 	}
-	*/
+        */	
+
 	private void openAdjacentCells(int hCoordinate, int wCoordinate){
 		AdjacentCellsMap adjacentCells = getAdjacentCells(hCoordinate, wCoordinate);
+                System.out.println("my cells are:" + adjacentCells.adjacentCellsToString()); // ------- ????????
+                
 		for(Cell c: adjacentCells.getAdjacentCells()){
 			c.openCell();
 		}
 		
+                //!!!! zemiau esancioje kodo dalyje yra problema ------------------------------------------------------------
+                // realiai reikia nepamesti originalaus Map objekto,
+                // nebekurti naujo, sekti, ar jo celes jau buvo querintos,
+                // prideti papildomas cell
+                //
+                //galimas variantas: a1) papildomas boolean pas kiekviena cell
+                
+                //!!! problema yra mano Liste<Cell> - ten atrodo visos vienodos cell !!! // ---------------????????????
+                System.out.println("my cells are:" + adjacentCells.adjacentCellsToString()); // ------- ????????
+                
 		for(Cell c: adjacentCells.getAdjacentCells()){
 			if(c.getValueActual().equals(CellValue.EMPTY)){
 				int[] cellCoordinates = adjacentCells.getCellCoordinates(c);
+                                System.out.println("recursive call with: h:" + cellCoordinates[0] + " y:" + cellCoordinates[1]); // ------- ????????
 				openAdjacentCells(cellCoordinates[0], cellCoordinates[1]);
 			}
 		}
