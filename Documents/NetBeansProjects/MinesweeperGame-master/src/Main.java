@@ -12,7 +12,8 @@ public class Main
 	// nesuprantu, kodel gaunu stackOverflow
 	//6) Ar klases neatlieka per daug f-ju (pvz. MineField ?)
 	//7) gal galima lauka atspausdinti su spalvomis?
-    //8) zaidimas nesibaigia: 1) radus visas minas; 2) atidarius visus langus  
+    //8) zaidimas nesibaigia: 1) radus visas minas; 2) atidarius visus langus
+    //9) toliau..
     
 	public static void main(String[] args){		
 		UserInterface gameUi = new UserInterface();
