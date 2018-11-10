@@ -37,6 +37,19 @@ public class AdjacentCellsMap
 		}
 		return result;
 	}
+        
+        // laikinas metodas -------------------------------- ??????????????
+        public String adjacentCellsToString(){
+            StringBuilder sb = new StringBuilder();
+            sb.append("[");
+            for(Cell c: this.adjacentCellsList){
+                int[] coordinates = this.adjacentCellsMap.get(c);
+                sb.append(coordinates[0]).append(" & ").append(coordinates[1]).append("|");
+            }
+            return sb.append("]").toString();
+        }
 
+
+}
 
 }
